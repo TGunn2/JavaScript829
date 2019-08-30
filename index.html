@@ -14,7 +14,7 @@
     <h3 class="question">Guess what letter I am thinking of!</h3>
 
     <h4>times you win:<span id="win"></span></h4>
-    <h4>times you loose:<span id="loose"></span></h4>
+    <h4>times you loose:<span id="wrong"></span></h4>
     <h4>times left:<span id="left"></span></h4>
     <h4>Your guesses so far:<span id="guesses"></span></h4>
     
@@ -41,7 +41,12 @@
         var correct = document.getElementById("win");
         var inCorrect = document.getElementById("wrong");
         var timesLeft = document.getElementById("left");
-        var guess = document.getElementById("guess");
+        var guess = document.getElementById("guesses");
+        var wins = 0;
+        var loose = 0;
+        var left = 10;
+        var soFar = [];
+
         // var prompted = prompt("Type in your predictions!")
 
 
@@ -53,9 +58,29 @@
             console.log(myChoice);
             console.log(myThought);
 
+            soFar.push(myChoice)
+            guess.innerHTML = '';
+
+            for (let i = 0; i < soFar.length; i++) {
+                const element = soFar[i];
+                var paragraph = document.createElement("P");
+                paragraph.textContent = element;
+                guess.append(paragraph)
+            }
+
+            left = left -1;
+            timesLeft.textContent = left;
+
+
+
             if(myChoice === myThought) {
-                alert("win");
-                correct.textContent = event.key;
+                alert("you win!");
+                wins = wins + 1;
+                correct.textContent = wins;
+            } else {
+                alert("guess again!");
+                loose = loose + 1;
+                inCorrect.textContent = loose;
             }
 
             // for (var i =0; i < myThoughts.length; i++) {
