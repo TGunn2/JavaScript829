@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS HW Psychics</title>
+</head>
+
+<body>
+    <h1 class="title">The Psychic Game</h1>
+
+    <h3 class="question">Guess what letter I am thinking of!</h3>
+
+    <h4>times you win:<span id="win"></span></h4>
+    <h4>times you loose:<span id="loose"></span></h4>
+    <h4>times left:<span id="left"></span></h4>
+    <h4>Your guesses so far:<span id="guesses"></span></h4>
+    
+
+
+
+
+    <script type="text/javascript">
+
+        var myThoughts = [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+        ];
+
+
+        var correct = document.getElementById("win");
+        var inCorrect = document.getElementById("wrong");
+        var timesLeft = document.getElementById("left");
+        var guess = document.getElementById("guess");
+        // var prompted = prompt("Type in your predictions!")
+
+
+        document.onkeyup = function(event) {
+            var myChoice = event.key;
+            console.log(event)
+            var myThought = myThoughts[Math.floor(Math.random() * 10)];
+
+            console.log(myChoice);
+            console.log(myThought);
+
+            if(myChoice === myThought) {
+                alert("win");
+                correct.textContent = event.key;
+            }
+
+            // for (var i =0; i < myThoughts.length; i++) {
+            //     if (myThoughts[i] === myChoice) {
+            //         // correct.textContent= event.key;
+            //         alert("win")
+            //     }
+            // }
+        };
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
