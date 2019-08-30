@@ -81,6 +81,13 @@
                 alert("guess again!");
                 loose = loose + 1;
                 inCorrect.textContent = loose;
+            } 
+
+            if (left === 0) {
+                alert("Game Over!!! Resetting Game ...");
+                left = 10;
+                loose = 0;
+                wins = 0;
             }
 
             // for (var i =0; i < myThoughts.length; i++) {
